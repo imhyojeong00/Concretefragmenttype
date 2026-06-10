@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stone Typing</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="viewport" class="viewport">
+    <div id="world" class="world"></div>
+  </main>
+
+  <!-- Zoom controls (top-left, floating) -->
+  <div class="zoombar">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">&minus;</button>
+    <button id="zoomFit">FIT</button>
+    <button id="zoomReset">1:1</button>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="bar">
+    <div class="flow">
+      <input id="mainInput" type="text" placeholder="Type here" autocomplete="off" />
+      <button id="translate" class="btn" title="Translate to Latin">LA</button>
+      <button id="mainType" class="btn primary" title="Type">TYPE</button>
+    </div>
+
+    <div class="flow controls">
+      <div class="seg">
+        <button id="verOriginal" class="seg-btn active">Original</button>
+        <button id="verDither" class="seg-btn">Dither</button>
+      </div>
+      <label class="chk"><input type="checkbox" id="latinMode" checked /> Latin</label>
+      <span class="spacer"></span>
+      <button id="graphToggle" class="icon" title="Genealogy graph">&#9683;</button>
+      <button id="save" class="icon" title="Save PNG">&#8595;</button>
+      <button id="clear" class="icon" title="Clear">&#10005;</button>
+    </div>
+  </div>
+
+  <!-- Genealogy minimap (toggle) -->
+  <div id="graphPanel" class="graph-panel hidden">
+    <div class="graph-head">
+      <span>Genealogy graph</span>
+      <button id="graphClose">&times;</button>
+    </div>
+    <svg id="graphSvg" viewBox="0 0 300 300"></svg>
+    <div class="graph-legend">
+      <span><i class="d g0"></i>Fam1</span><span><i class="d g1"></i>Fam2</span>
+      <span><i class="d g2"></i>Fam3</span><span><i class="d g3"></i>Fam4</span>
+    </div>
+    <div id="graphInfo" class="graph-info">Hover or type to see distance &amp; angle.</div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="graphlayout.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
